@@ -8,6 +8,9 @@ export default defineNuxtConfig({
   site: {
     url: "https://sumeruweb-new-gmeh.vercel.app", // ← 換成你的網域
   },
+  routeRules: {
+    '/sitemap.xml': { headers: { 'cache-control': 'no-cache' } }
+  },
   sitemap: {
     urls: [
       { loc: "/", priority: 1.0, changefreq: "weekly" },
