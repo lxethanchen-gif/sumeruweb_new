@@ -6,7 +6,7 @@ export default defineNuxtConfig({
   serverDir: 'app/server', 
   modules: ["@nuxtjs/sitemap"],
   site: {
-    url: "https://your-domain.com", // ← 換成你的網域
+    url: "https://sumeruweb-new-gmeh.vercel.app", // ← 換成你的網域
   },
   sitemap: {
     urls: [
