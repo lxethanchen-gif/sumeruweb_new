@@ -1,5 +1,15 @@
 <script setup lang="ts">
-useHead({ title: "關於我們 | MySite" });
+useHead({
+  title: "關於我們 | MySite",
+  meta: [
+    { name: "description", content: "了解 MySite 團隊背景、理念與服務宗旨。" },
+    { property: "og:title", content: "關於我們 | MySite" },
+    {
+      property: "og:description",
+      content: "了解 MySite 團隊背景、理念與服務宗旨。",
+    },
+  ],
+});
 </script>
 
 <template>

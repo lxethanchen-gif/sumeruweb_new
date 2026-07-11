@@ -1,5 +1,20 @@
 <script setup lang="ts">
-useHead({ title: "作品集 | MySite" });
+useHead({
+  title: "作品集 | MySite",
+  meta: [
+    {
+      name: "description",
+      content:
+        "瀏覽 MySite 的代表作品，包含電商平台、健康App、企業官網等專案。",
+    },
+    { property: "og:title", content: "作品集 | MySite" },
+    {
+      property: "og:description",
+      content:
+        "瀏覽 MySite 的代表作品，包含電商平台、健康App、企業官網等專案。",
+    },
+  ],
+});
 
 const works = [
   {

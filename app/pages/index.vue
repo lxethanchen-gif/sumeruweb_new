@@ -1,5 +1,18 @@
 <script setup lang="ts">
-useHead({ title: "首頁 | MySite" });
+useHead({
+  title: "Nuxt專案測試",
+  meta: [
+    {
+      name: "description",
+      content: "歡迎來到 MySite，我們提供專業網站開發、App開發與UI設計服務。",
+    },
+    { property: "og:title", content: "首頁 | MySite" },
+    {
+      property: "og:description",
+      content: "歡迎來到 MySite，我們提供專業網站開發、App開發與UI設計服務。",
+    },
+  ],
+});
 </script>
 
 <template>

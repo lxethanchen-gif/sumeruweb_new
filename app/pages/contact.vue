@@ -1,5 +1,18 @@
 <script setup lang="ts">
-useHead({ title: "聯絡我們 | MySite" });
+useHead({
+  title: "聯絡我們 | MySite",
+  meta: [
+    {
+      name: "description",
+      content: "有任何問題或合作需求，歡迎透過表單聯繫 MySite 團隊。",
+    },
+    { property: "og:title", content: "聯絡我們 | MySite" },
+    {
+      property: "og:description",
+      content: "有任何問題或合作需求，歡迎透過表單聯繫 MySite 團隊。",
+    },
+  ],
+});
 
 const form = reactive({ name: "", email: "", message: "" });
 const sent = ref(false);

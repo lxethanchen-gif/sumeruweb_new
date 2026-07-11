@@ -1,5 +1,12 @@
 <script setup lang="ts">
-useHead({ title: "服務項目 | MySite" });
+useHead({
+  title: '服務項目 | MySite',
+  meta: [
+    { name: 'description', content: '我們提供網站開發、App開發、UI/UX設計、雲端部署等全方位數位服務。' },
+    { property: 'og:title', content: '服務項目 | MySite' },
+    { property: 'og:description', content: '我們提供網站開發、App開發、UI/UX設計、雲端部署等全方位數位服務。' },
+  ]
+})
 
 const services = [
   {
