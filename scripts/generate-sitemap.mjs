@@ -1,7 +1,7 @@
 import { writeFileSync, mkdirSync } from "fs";
 import { resolve } from "path";
 
-const baseUrl = "https://your-domain.com"; // ← 換成你的網域
+const baseUrl = "https://sumeruweb-new-gmeh.vercel.app/"; // ← 換成你的網域
 
 const routes = [
   { loc: "/", priority: "1.0", changefreq: "weekly" },
