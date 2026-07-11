@@ -3,9 +3,9 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "build": "nuxt build && node scripts/generate-sitemap.mjs",
+    "build": "nuxt build",
     "dev": "nuxt dev",
-    "generate": "nuxt generate && node scripts/generate-sitemap.mjs",
+    "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"
   },
