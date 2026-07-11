@@ -1,3 +1,14 @@
+<script setup>
+useHead({
+  meta: [
+    {
+      name: "google-site-verification",
+      content: "E4ERzqObbzfLJlXDRFvnmDcA9Kyy2WgcdNf47ptAAWo",
+    },
+  ],
+});
+</script>
+
 <template>
   <div class="site-wrapper">
     <AppHeader />
