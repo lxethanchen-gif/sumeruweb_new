@@ -13,7 +13,7 @@ const menuOpen = ref(false);
 <template>
   <header class="site-header">
     <div class="header-inner">
-      <NuxtLink to="/" class="logo">⬡ MySite</NuxtLink>
+      <NuxtLink to="/" class="logo">陶瓷保溫杯市集</NuxtLink>
 
       <!-- 桌機導覽 -->
       <nav class="nav-desktop">
@@ -76,7 +76,7 @@ const menuOpen = ref(false);
 .logo {
   font-size: 1.25rem;
   font-weight: 700;
-  color: var(--c-accent-light);
+  color: RGB(255, 255, 255);
   text-decoration: none;
   letter-spacing: 0.02em;
 }

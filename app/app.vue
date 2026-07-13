@@ -29,9 +29,9 @@ useHead({
 }
 
 :root {
-  --c-bg: #0f1117;
-  --c-surface: #1a1d27;
-  --c-border: #2a2d3a;
+  --c-bg: #FFFFFF;
+  --c-surface: #FFFFFF;
+  --c-border: #FFFFFF;
   --c-accent: #7c6df0;
   --c-accent-light: #a99bf5;
   --c-text: #e8e8f0;
@@ -40,7 +40,7 @@ useHead({
 }
 
 body {
-  background: #0f1117;
+  background: #FFFFFF;
 }
 </style>
 
@@ -59,6 +59,6 @@ body {
   max-width: 1100px;
   width: 100%;
   margin: 0 auto;
-  padding: 48px 24px;
+  padding: 15px 24px;
 }
 </style>
