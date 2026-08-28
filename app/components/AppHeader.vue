@@ -1,9 +1,9 @@
 <script setup lang="ts">
 const navLinks = [
   { label: "首頁", to: "/" },
-  { label: "關於我們", to: "/about" },
-  { label: "服務項目", to: "/services" },
-  { label: "作品集", to: "/portfolio" },
+  { label: "作者簡介", to: "/about" },
+  { label: "書籍介紹", to: "/services" },
+  { label: "販售連結", to: "/portfolio" },
   { label: "聯絡我們", to: "/contact" },
 ];
 
@@ -13,7 +13,7 @@ const menuOpen = ref(false);
 <template>
   <header class="site-header">
     <div class="header-inner">
-      <NuxtLink to="/" class="logo">陶瓷保溫杯市集</NuxtLink>
+      <NuxtLink to="/" class="logo">誰在拯救個世界</NuxtLink>
 
       <!-- 桌機導覽 -->
       <nav class="nav-desktop">
@@ -58,7 +58,7 @@ const menuOpen = ref(false);
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(15, 17, 23, 0.85);
+  background: rgb(250, 209, 2);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--c-border);
 }
@@ -102,7 +102,7 @@ const menuOpen = ref(false);
 }
 .nav-link--active {
   color: var(--c-accent-light) !important;
-  background: rgba(124, 109, 240, 0.12) !important;
+  background: rgba(250, 233, 3, 0.12) !important;
 }
 
 .hamburger {

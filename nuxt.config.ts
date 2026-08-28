@@ -7,6 +7,11 @@ export default defineNuxtConfig({
   site: {
     url: 'https://sumeruweb-new-gmeh.vercel.app'
   },
+  // nitro: {
+  //   prerender: {
+  //     routes: ['/sitemap.xml'],
+  //   },
+  // },
   runtimeConfig: {
     mongodbUri: process.env.MONGODB_URI,
   },
