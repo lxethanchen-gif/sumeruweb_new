@@ -86,26 +86,29 @@ const capabilities = [
 
 <template>
   <div class="page">
-
     <section class="hero">
-      <p class="eyebrow">網站・App・介面設計工作室</p>
+      <!-- <p class="eyebrow">網站・App・介面設計工作室</p> -->
       <h1 class="hero__title">
-        我們把需求<br />
-        變成<span class="hero__accent">可以上線的產品</span>
+        誰在幫助台灣<br />
+        <span class="hero__accent">誰在拯救這個世界</span><br />
+        <span class="hero__accent1">呂合 著</span>
       </h1>
       <p class="hero__desc">
-        MySite
-        是一間專注在網站、行動應用與使用者介面的小型開發工作室。從規格到部署，
-        一條產線做完，不假手第三方。
+        作者呂合先生1962年12月14日生於中國遼寧省瓦房店。<br />
+        1984年畢業於青島建工學院應用物理學材料力學系。<br />
+        現擔任WEAA董事長，旅歐各地，免費對各類侵犯人權、人身傷害等的事件、案件梳理幫助！
       </p>
       <div class="hero__actions">
-        <NuxtLink to="/services" class="btn btn--primary">查看服務範疇</NuxtLink>
-        <NuxtLink to="/contact" class="btn btn--ghost">聊聊你的專案</NuxtLink>
+        <NuxtLink to="/services" class="btn btn--primary"
+          >查看服務範疇</NuxtLink
+        >
+        <!-- <NuxtLink to="/contact" class="btn btn--ghost">聊聊你的專案</NuxtLink> -->
       </div>
 
       <div class="cap-row">
         <span v-for="c in capabilities" :key="c.code" class="cap-chip">
-          <span class="cap-chip__code">{{ c.code }}</span>{{ c.label }}
+          <span class="cap-chip__code">{{ c.code }}</span
+          >{{ c.label }}
         </span>
       </div>
     </section>
@@ -120,7 +123,9 @@ const capabilities = [
       </div>
 
       <p v-if="pending" class="status">載入中...</p>
-      <p v-else-if="error" class="status status--error">載入失敗，請稍後再試。</p>
+      <p v-else-if="error" class="status status--error">
+        載入失敗，請稍後再試。
+      </p>
 
       <template v-else>
         <div class="users-grid">
@@ -172,7 +177,7 @@ const capabilities = [
   --bg: #ffffff;
   --surface: #ffffff;
   --surface-2: #f0f4fb;
-  --ink: #B18F15;
+  --ink: #b18f15;
   --ink-dim: #5c6c88;
   --accent: #1d5fe0;
   --accent-2: #0891b2;
@@ -189,7 +194,6 @@ const capabilities = [
 
 /* corner registration marks — signature device across all pages */
 
-
 /* Hero */
 .hero {
   max-width: 720px;
@@ -198,20 +202,27 @@ const capabilities = [
 .eyebrow {
   font-family: "IBM Plex Sans", sans-serif;
   font-size: 0.8rem;
-  color: var(--accent-2);
+  color: rgb(255, 183, 3);
   margin-bottom: 18px;
   letter-spacing: 0.03em;
 }
 .hero__title {
   font-family: "Space Grotesk", sans-serif;
+  color: rgb(255, 183, 3);
   font-weight: 700;
   font-size: clamp(2.2rem, 5.5vw, 3.6rem);
-  line-height: 1.12;
-  letter-spacing: -0.01em;
+  line-height: 1.52;
+  letter-spacing: 0.1em;
   margin-bottom: 22px;
 }
 .hero__accent {
-  color: var(--accent);
+  color: rgb(255, 183, 3);
+}
+.hero__accent1 {
+  font-size: 1.2rem;
+  line-height: 1.52;
+  /* font-weight: 500; */
+  color: rgb(255, 183, 3);
 }
 .hero__desc {
   color: var(--ink-dim);
@@ -323,7 +334,9 @@ const capabilities = [
   border-radius: 8px;
   padding: 22px 18px;
   text-align: center;
-  transition: border-color 0.2s ease, transform 0.2s ease;
+  transition:
+    border-color 0.2s ease,
+    transform 0.2s ease;
 }
 .user-card:hover {
   border-color: var(--accent-2);
@@ -378,7 +391,9 @@ const capabilities = [
   cursor: pointer;
   font-family: "IBM Plex Sans", sans-serif;
   font-size: 0.82rem;
-  transition: background 0.2s, border-color 0.2s;
+  transition:
+    background 0.2s,
+    border-color 0.2s;
 }
 .page-btn:hover:not(:disabled) {
   border-color: var(--accent-2);
@@ -398,19 +413,36 @@ const capabilities = [
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(8px); }
-  to { opacity: 1; transform: none; }
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 /* RWD */
 @media (max-width: 960px) {
-  .page { padding: 36px 16px 48px; }
+  .page {
+    padding: 36px 16px 48px;
+  }
 }
 @media (max-width: 640px) {
-  .hero { padding: 16px 0 32px; }
-  .hero__actions { flex-direction: column; }
-  .btn { text-align: center; }
-  .users-grid { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 12px; }
+  .hero {
+    padding: 16px 0 32px;
+  }
+  .hero__actions {
+    flex-direction: column;
+  }
+  .btn {
+    text-align: center;
+  }
+  .users-grid {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 12px;
+  }
 }
 </style>
 

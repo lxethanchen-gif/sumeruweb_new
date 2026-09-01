@@ -4,7 +4,7 @@ const navLinks = [
   { label: "作者簡介", to: "/about" },
   { label: "書籍介紹", to: "/services" },
   { label: "販售連結", to: "/portfolio" },
-  { label: "聯絡我們", to: "/contact" },
+  // { label: "聯絡我們", to: "/contact" },
 ];
 
 const menuOpen = ref(false);
@@ -58,7 +58,7 @@ const menuOpen = ref(false);
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgb(250, 209, 2);
+  background: rgb(250, 188, 2);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--c-border);
 }
@@ -74,7 +74,7 @@ const menuOpen = ref(false);
 }
 
 .logo {
-  font-size: 1.25rem;
+  font-size: 25px;
   font-weight: 700;
   color: RGB(255, 255, 255);
   text-decoration: none;
@@ -90,19 +90,19 @@ const menuOpen = ref(false);
   padding: 6px 14px;
   border-radius: 6px;
   font-size: 0.9rem;
-  color: var(--c-muted);
+  color: rgb(253, 252, 252) !important;
   text-decoration: none;
   transition:
     color 0.2s,
     background 0.2s;
 }
 .nav-link:hover {
-  color: var(--c-text);
-  background: var(--c-surface);
+  color: rgb(255, 183, 3) !important;
+  background: rgb(253, 252, 252) !important;
 }
 .nav-link--active {
-  color: var(--c-accent-light) !important;
-  background: rgba(250, 233, 3, 0.12) !important;
+  color: rgb(255, 183, 3) !important;
+  background: rgb(253, 252, 252) !important;
 }
 
 .hamburger {

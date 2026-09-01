@@ -1,17 +1,17 @@
 <script setup lang="ts">
 const navLinks = [
   { label: '首頁', to: '/' },
-  { label: '關於我們', to: '/about' },
-  { label: '服務項目', to: '/services' },
-  { label: '作品集', to: '/portfolio' },
-  { label: '聯絡我們', to: '/contact' },
+  { label: '作者簡介', to: '/about' },
+  { label: '書籍介紹', to: '/services' },
+  { label: '販售連結', to: '/portfolio' },
+  // { label: '聯絡我們', to: '/contact' },
 ]
 </script>
 
 <template>
   <footer class="site-footer">
     <div class="footer-inner">
-      <span class="footer-brand">⬡ MySite</span>
+      <!-- <span class="footer-brand">誰在拯救這個世界</span> -->
       <span class="footer-copy">© {{ new Date().getFullYear() }} All rights reserved.</span>
       <nav class="footer-nav">
         <NuxtLink
@@ -44,7 +44,7 @@ const navLinks = [
 }
 .footer-brand {
   font-weight: 700;
-  color: var(--c-accent-light);
+  color: rgb(255, 183, 3);
 }
 .footer-copy {
   font-size: 0.82rem;
@@ -56,11 +56,11 @@ const navLinks = [
 }
 .footer-link {
   font-size: 0.82rem;
-  color: var(--c-muted);
+  color: rgb(255, 183, 3);
   text-decoration: none;
   transition: color 0.2s;
 }
 .footer-link:hover {
-  color: var(--c-accent-light);
+  color: rgb(244, 207, 115);
 }
 </style>
