@@ -61,6 +61,7 @@ const menuOpen = ref(false);
   background: rgb(250, 188, 2);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--c-border);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
 .header-inner {

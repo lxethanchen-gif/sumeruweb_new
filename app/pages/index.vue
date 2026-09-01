@@ -1,15 +1,15 @@
 <script setup lang="ts">
 useHead({
-  title: "Nuxt專案測試",
+  title: "呂合 誰在幫助台灣 誰在拯救這個世界",
   meta: [
     {
       name: "description",
-      content: "歡迎來到 MySite，我們提供專業網站開發、App開發與UI設計服務。",
+      content: "作者呂合先生1962年12月14日生於中國遼寧省瓦房店。"
     },
     { property: "og:title", content: "首頁 | MySite" },
     {
       property: "og:description",
-      content: "歡迎來到 MySite，我們提供專業網站開發、App開發與UI設計服務。",
+      content: "1984年畢業於青島建工學院應用物理學材料力學系。<br />現擔任WEAA董事長，旅歐各地，免費對各類侵犯人權、人身傷害等的事件、案件梳理幫助！"
     },
   ],
   link: [
@@ -76,44 +76,131 @@ const pageNumbers = computed(() => {
   return pages;
 });
 
-const capabilities = [
-  { code: "WEB", label: "網站開發" },
-  { code: "APP", label: "App 開發" },
-  { code: "UI", label: "介面設計" },
-  { code: "OPS", label: "雲端部署" },
+// const capabilities = [
+//   { code: "WEB", label: "網站開發" },
+//   { code: "APP", label: "App 開發" },
+//   { code: "UI", label: "介面設計" },
+//   { code: "OPS", label: "雲端部署" },
+// ];
+
+const authorPhotos = [
+  "/images/author/author-1.jpg",
+  "/images/author/author-2.jpg",
+  "/images/author/author-3.jpg",
 ];
+
+// 書封輪播
+const coverImages = [
+  "/images/book/cover.webp",
+  "/images/book/cover1.webp",
+  "/images/book/cover2.webp",
+  "/images/book/cover3.webp",
+  "/images/book/cover4.webp",
+];
+
+const activeCover = ref(0);
+const coverAutoplayMs = 3500;
+let coverTimer: ReturnType<typeof setInterval> | null = null;
+
+function stopCoverAutoplay() {
+  if (coverTimer) {
+    clearInterval(coverTimer);
+    coverTimer = null;
+  }
+}
+
+function startCoverAutoplay() {
+  stopCoverAutoplay();
+  coverTimer = setInterval(() => {
+    activeCover.value = (activeCover.value + 1) % coverImages.length;
+  }, coverAutoplayMs);
+}
+
+function goToCover(idx: number) {
+  activeCover.value = idx;
+  startCoverAutoplay();
+}
+
+onMounted(() => {
+  startCoverAutoplay();
+});
+onBeforeUnmount(() => {
+  stopCoverAutoplay();
+});
 </script>
 
 <template>
   <div class="page">
     <section class="hero">
-      <!-- <p class="eyebrow">網站・App・介面設計工作室</p> -->
-      <h1 class="hero__title">
-        誰在幫助台灣<br />
-        <span class="hero__accent">誰在拯救這個世界</span><br />
-        <span class="hero__accent1">呂合 著</span>
-      </h1>
-      <p class="hero__desc">
-        作者呂合先生1962年12月14日生於中國遼寧省瓦房店。<br />
-        1984年畢業於青島建工學院應用物理學材料力學系。<br />
-        現擔任WEAA董事長，旅歐各地，免費對各類侵犯人權、人身傷害等的事件、案件梳理幫助！
-      </p>
-      <div class="hero__actions">
-        <NuxtLink to="/services" class="btn btn--primary"
-          >查看服務範疇</NuxtLink
-        >
-        <!-- <NuxtLink to="/contact" class="btn btn--ghost">聊聊你的專案</NuxtLink> -->
+      <div class="hero__content">
+        <!-- <p class="eyebrow">網站・App・介面設計工作室</p> -->
+        <h1 class="hero__title">
+          誰在幫助台灣<br />
+          <span class="hero__accent">誰在拯救這個世界</span><br />
+          <span class="hero__accent1">呂合 著</span>
+        </h1>
+
+        <div class="author-photos">
+          <img
+            v-for="(photo, idx) in authorPhotos"
+            :key="idx"
+            :src="photo"
+            alt="呂合先生"
+            class="author-photos__img"
+          />
+        </div>
+
+        <p class="hero__desc">
+          作者呂合先生1962年12月14日生於中國遼寧省瓦房店。<br />
+          1984年畢業於青島建工學院應用物理學材料力學系。<br />
+          現擔任WEAA董事長，旅歐各地，免費對各類侵犯人權、人身傷害等的事件、案件梳理幫助！
+        </p>
+        <div class="hero__actions">
+          <NuxtLink to="/services" class="btn btn--primary"
+            >進入書籍連結<link></NuxtLink
+          >
+          <!-- <NuxtLink to="/contact" class="btn btn--ghost">聊聊你的專案</NuxtLink> -->
+        </div>
+<!-- 
+        <div class="cap-row">
+          <span v-for="c in capabilities" :key="c.code" class="cap-chip">
+            <span class="cap-chip__code">{{ c.code }}</span
+            >{{ c.label }}
+          </span>
+        </div> -->
       </div>
 
-      <div class="cap-row">
-        <span v-for="c in capabilities" :key="c.code" class="cap-chip">
-          <span class="cap-chip__code">{{ c.code }}</span
-          >{{ c.label }}
-        </span>
+      <div
+        class="hero__cover"
+        @mouseenter="stopCoverAutoplay"
+        @mouseleave="startCoverAutoplay"
+      >
+        <div class="cover-carousel">
+          <img
+            v-for="(cover, idx) in coverImages"
+            :key="cover"
+            :src="cover"
+            alt="《誰在幫助台灣 誰在拯救這個世界》書籍封面"
+            class="hero__cover-img"
+            :class="{ 'hero__cover-img--active': idx === activeCover }"
+          />
+        </div>
+
+        <div class="cover-dots">
+          <button
+            v-for="(cover, idx) in coverImages"
+            :key="cover"
+            type="button"
+            class="cover-dot"
+            :class="{ 'cover-dot--active': idx === activeCover }"
+            :aria-label="`切換至封面 ${idx + 1}`"
+            @click="goToCover(idx)"
+          ></button>
+        </div>
       </div>
     </section>
 
-    <section class="users-section">
+    <!-- <section class="users-section">
       <div class="section-head">
         <p class="section-head__label">DATA — 會員資料連線示範</p>
         <h2>使用者列表</h2>
@@ -168,7 +255,7 @@ const capabilities = [
           </button>
         </div>
       </template>
-    </section>
+    </section> -->
   </div>
 </template>
 
@@ -187,7 +274,7 @@ const capabilities = [
   background: var(--bg);
   color: var(--ink);
   font-family: "IBM Plex Sans", sans-serif;
-  padding: 44px 20px 64px;
+  padding: clamp(24px, 5vw, 44px) clamp(16px, 4vw, 20px) clamp(40px, 8vw, 64px);
   animation: fadeIn 0.4s ease;
   min-height: 100vh;
 }
@@ -196,8 +283,67 @@ const capabilities = [
 
 /* Hero */
 .hero {
-  max-width: 720px;
+  max-width: 1100px;
+  margin: 0 auto;
   padding: 24px 0 40px;
+  display: flex;
+  align-items: flex-start;
+  gap: clamp(24px, 4vw, 48px);
+}
+.hero__content {
+  flex: 1 1 420px;
+  min-width: 0;
+}
+.hero__cover {
+  flex: 0 1 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+.cover-carousel {
+  position: relative;
+  width: 100%;
+  max-width: 320px;
+  aspect-ratio: 3 / 4;
+  border-radius: 6px;
+  overflow: hidden;
+  background: var(--surface-2);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.18);
+}
+.hero__cover-img {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  color: transparent;
+  opacity: 0;
+  transition: opacity 0.7s ease;
+}
+.hero__cover-img--active {
+  opacity: 1;
+}
+.cover-dots {
+  display: flex;
+  gap: 8px;
+}
+.cover-dot {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: var(--line);
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+.cover-dot--active {
+  background: rgb(255, 183, 3);
+  transform: scale(1.3);
 }
 .eyebrow {
   font-family: "IBM Plex Sans", sans-serif;
@@ -210,23 +356,39 @@ const capabilities = [
   font-family: "Space Grotesk", sans-serif;
   color: rgb(255, 183, 3);
   font-weight: 700;
-  font-size: clamp(2.2rem, 5.5vw, 3.6rem);
-  line-height: 1.52;
-  letter-spacing: 0.1em;
+  font-size: clamp(1.9rem, 5.5vw, 3.6rem);
+  /* line-height: 1.52; */
+  letter-spacing: 0.06em;
   margin-bottom: 22px;
 }
 .hero__accent {
   color: rgb(255, 183, 3);
 }
 .hero__accent1 {
-  font-size: 1.2rem;
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
   line-height: 1.52;
   /* font-weight: 500; */
   color: rgb(255, 183, 3);
 }
+.author-photos {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 28px;
+}
+.author-photos__img {
+  display: block;
+  width: clamp(88px, 12vw, 140px);
+  height: clamp(88px, 12vw, 140px);
+  object-fit: cover;
+  background: var(--surface-2);
+  color: transparent;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+}
 .hero__desc {
   color: var(--ink-dim);
-  font-size: 1.02rem;
+  font-size: clamp(0.92rem, 2vw, 1.02rem);
   line-height: 1.75;
   max-width: 52ch;
   margin-bottom: 32px;
@@ -248,11 +410,14 @@ const capabilities = [
   border: 1px solid transparent;
 }
 .btn--primary {
-  background: var(--accent);
+  background: rgb(255, 183, 3);
   color: #ffffff;
+  letter-spacing: 0.2em;
 }
 .btn--primary:hover {
-  background: #164fc0;
+  background: #ffffff;
+  border-color: rgb(255, 183, 3);
+  color: rgb(255, 183, 3);
 }
 .btn--ghost {
   border-color: var(--line);
@@ -290,7 +455,8 @@ const capabilities = [
 
 /* Users demo section */
 .users-section {
-  margin-top: 24px;
+  max-width: 1100px;
+  margin: 24px auto 0;
   padding-top: 40px;
   border-top: 1px solid var(--line);
 }
@@ -306,7 +472,7 @@ const capabilities = [
 }
 .section-head h2 {
   font-family: "Space Grotesk", sans-serif;
-  font-size: 1.5rem;
+  font-size: clamp(1.25rem, 3vw, 1.5rem);
   font-weight: 700;
 }
 .section-head__meta {
@@ -424,11 +590,43 @@ const capabilities = [
 }
 
 /* RWD */
+
+/* 平板橫向 / 中寬螢幕：hero 保持並排，但封面圖縮小避免擁擠 */
 @media (max-width: 960px) {
   .page {
     padding: 36px 16px 48px;
   }
+  .hero {
+    gap: 28px;
+  }
+  .hero__cover {
+    flex: 0 1 220px;
+  }
+  .cover-carousel {
+    max-width: 220px;
+  }
 }
+
+/* 平板直向：hero 開始改為單欄 */
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+  }
+  .hero__cover {
+    order: -1;
+    flex: 0 0 auto;
+    width: 100%;
+  }
+  .cover-carousel {
+    max-width: 200px;
+    margin: 0 auto;
+  }
+  .users-grid {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  }
+}
+
+/* 手機 */
 @media (max-width: 640px) {
   .hero {
     padding: 16px 0 32px;
@@ -436,12 +634,50 @@ const capabilities = [
   .hero__actions {
     flex-direction: column;
   }
-  .btn {
+  .hero__actions .btn {
+    width: 100%;
     text-align: center;
+  }
+  .author-photos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    width: 100%;
+  }
+  .author-photos__img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    background: var(--surface-2);
   }
   .users-grid {
     grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
     gap: 12px;
+  }
+  .section-head {
+    text-align: center;
+  }
+}
+
+/* 極小螢幕手機 */
+@media (max-width: 400px) {
+  .hero__title {
+    letter-spacing: 0.02em;
+  }
+  .hero__desc {
+    max-width: 100%;
+  }
+  .cap-row {
+    justify-content: center;
+  }
+  .users-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .page-btn {
+    min-width: 32px;
+    height: 32px;
+    padding: 0 6px;
+    font-size: 0.75rem;
   }
 }
 </style>
