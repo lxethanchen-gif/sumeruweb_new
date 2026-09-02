@@ -156,7 +156,7 @@ onBeforeUnmount(() => {
           現擔任WEAA董事長，旅歐各地，免費對各類侵犯人權、人身傷害等的事件、案件梳理幫助！
         </p>
         <div class="hero__actions">
-          <NuxtLink to="/services" class="btn btn--primary"
+          <NuxtLink to="/portfolio" class="btn btn--primary"
             >進入書籍連結<link></NuxtLink
           >
           <!-- <NuxtLink to="/contact" class="btn btn--ghost">聊聊你的專案</NuxtLink> -->
@@ -320,7 +320,7 @@ onBeforeUnmount(() => {
   object-fit: cover;
   color: transparent;
   opacity: 0;
-  transition: opacity 0.7s ease;
+  transition: opacity 0.3s ease;
 }
 .hero__cover-img--active {
   opacity: 1;

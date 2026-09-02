@@ -13,7 +13,7 @@ const menuOpen = ref(false);
 <template>
   <header class="site-header">
     <div class="header-inner">
-      <NuxtLink to="/" class="logo">誰在拯救個世界</NuxtLink>
+      <NuxtLink to="/" class="logo">誰在幫助台灣<br />誰在拯救個世界</NuxtLink>
 
       <!-- 桌機導覽 -->
       <nav class="nav-desktop">
@@ -58,10 +58,9 @@ const menuOpen = ref(false);
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgb(250, 188, 2);
+  background: rgb(253, 253, 252);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--c-border);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
 .header-inner {
@@ -75,9 +74,10 @@ const menuOpen = ref(false);
 }
 
 .logo {
-  font-size: 25px;
+  font-size: 15px;
   font-weight: 700;
-  color: RGB(255, 255, 255);
+  color: rgb(252, 210, 0);
+  line-height: 1.2;
   text-decoration: none;
   letter-spacing: 0.02em;
 }
@@ -90,17 +90,23 @@ const menuOpen = ref(false);
 .nav-link {
   padding: 6px 14px;
   border-radius: 6px;
-  font-size: 0.9rem;
-  color: rgb(253, 252, 252) !important;
+  border: 2px solid transparent;
+  font-size: 18px;
+  font-weight: 500;
+  color: rgb(255, 200, 0) !important;
   text-decoration: none;
   transition:
     color 0.2s,
-    background 0.2s;
+    background 0.2s,
+    border-color 0.2s;
 }
 .nav-link:hover {
   color: rgb(255, 183, 3) !important;
+  border-radius: 6px;
+  border-color: rgb(255, 183, 3);
   background: rgb(253, 252, 252) !important;
 }
+
 .nav-link--active {
   color: rgb(255, 183, 3) !important;
   background: rgb(253, 252, 252) !important;
