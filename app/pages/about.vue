@@ -225,7 +225,7 @@ onBeforeUnmount(() => {
   border-radius: 28px;
   box-shadow: 0 18px 40px rgba(140, 110, 27, 0.18);
   background: #f4ead0;
-  animation: carouselIn 0.7s ease both;
+  animation: carouselIn 0.3s ease both;
 }
 .carousel-track {
   position: relative;
