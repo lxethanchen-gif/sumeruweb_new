@@ -125,7 +125,7 @@ const menuOpen = ref(false);
   display: block;
   width: 22px;
   height: 2px;
-  background: var(--c-text);
+  background: rgb(255, 200, 0);
   border-radius: 2px;
   transition:
     transform 0.25s,

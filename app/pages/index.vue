@@ -4,12 +4,13 @@ useHead({
   meta: [
     {
       name: "description",
-      content: "作者呂合先生1962年12月14日生於中國遼寧省瓦房店。"
+      content: "作者呂合先生1962年12月14日生於中國遼寧省瓦房店。",
     },
     { property: "og:title", content: "首頁 | MySite" },
     {
       property: "og:description",
-      content: "1984年畢業於青島建工學院應用物理學材料力學系。<br />現擔任WEAA董事長，旅歐各地，免費對各類侵犯人權、人身傷害等的事件、案件梳理幫助！"
+      content:
+        "1984年畢業於青島建工學院應用物理學材料力學系。<br />現擔任WEAA董事長，旅歐各地，免費對各類侵犯人權、人身傷害等的事件、案件梳理幫助！",
     },
   ],
   link: [
@@ -121,18 +122,52 @@ function goToCover(idx: number) {
   startCoverAutoplay();
 }
 
+// ------- 滑動進場特效 (Scroll Reveal) -------
+let revealObserver: IntersectionObserver | null = null;
+
+function initScrollReveal() {
+  const targets = document.querySelectorAll<HTMLElement>(".reveal");
+
+  // 若瀏覽器不支援 IntersectionObserver，直接顯示所有元素
+  if (!("IntersectionObserver" in window)) {
+    targets.forEach((el) => el.classList.add("reveal--visible"));
+    return;
+  }
+
+  revealObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const el = entry.target as HTMLElement;
+          el.classList.add("reveal--visible");
+          revealObserver?.unobserve(el);
+        }
+      });
+    },
+    {
+      threshold: 0.15,
+      rootMargin: "0px 0px -40px 0px",
+    },
+  );
+
+  targets.forEach((el) => revealObserver?.observe(el));
+}
+
 onMounted(() => {
   startCoverAutoplay();
+  // 等待 DOM 渲染完成再掛上觀察者
+  nextTick(() => initScrollReveal());
 });
 onBeforeUnmount(() => {
   stopCoverAutoplay();
+  revealObserver?.disconnect();
 });
 </script>
 
 <template>
   <div class="page">
     <section class="hero">
-      <div class="hero__content">
+      <div class="hero__content reveal reveal--left">
         <!-- <p class="eyebrow">網站・App・介面設計工作室</p> -->
         <h1 class="hero__title">
           誰在幫助台灣<br />
@@ -146,22 +181,26 @@ onBeforeUnmount(() => {
             :key="idx"
             :src="photo"
             alt="呂合先生"
-            class="author-photos__img"
+            class="author-photos__img reveal reveal--up"
+            :style="{ transitionDelay: `${idx * 0.12}s` }"
           />
         </div>
 
-        <p class="hero__desc">
+        <p class="hero__desc reveal reveal--up" style="transition-delay: 0.15s">
           作者呂合先生1962年12月14日生於中國遼寧省瓦房店。<br />
           1984年畢業於青島建工學院應用物理學材料力學系。<br />
           現擔任WEAA董事長，旅歐各地，免費對各類侵犯人權、人身傷害等的事件、案件梳理幫助！
         </p>
-        <div class="hero__actions">
+        <div
+          class="hero__actions reveal reveal--up"
+          style="transition-delay: 0.25s"
+        >
           <NuxtLink to="/portfolio" class="btn btn--primary"
-            >進入書籍連結<link></NuxtLink
-          >
+            >進入書籍連結<link
+          /></NuxtLink>
           <!-- <NuxtLink to="/contact" class="btn btn--ghost">聊聊你的專案</NuxtLink> -->
         </div>
-<!-- 
+        <!-- 
         <div class="cap-row">
           <span v-for="c in capabilities" :key="c.code" class="cap-chip">
             <span class="cap-chip__code">{{ c.code }}</span
@@ -171,7 +210,7 @@ onBeforeUnmount(() => {
       </div>
 
       <div
-        class="hero__cover"
+        class="hero__cover reveal reveal--right"
         @mouseenter="stopCoverAutoplay"
         @mouseleave="startCoverAutoplay"
       >
@@ -277,6 +316,35 @@ onBeforeUnmount(() => {
   padding: clamp(24px, 5vw, 44px) clamp(16px, 4vw, 20px) clamp(40px, 8vw, 64px);
   animation: fadeIn 0.4s ease;
   min-height: 100vh;
+}
+
+/* ------- 滑動進場特效 ------- */
+.reveal {
+  opacity: 0;
+  transition:
+    opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+.reveal--up {
+  transform: translateY(28px);
+}
+.reveal--left {
+  transform: translateX(-32px);
+}
+.reveal--right {
+  transform: translateX(32px);
+}
+.reveal--visible {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    transition: none;
+    opacity: 1;
+    transform: none;
+  }
 }
 
 /* corner registration marks — signature device across all pages */
