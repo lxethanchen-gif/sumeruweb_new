@@ -60,9 +60,9 @@ const menuOpen = ref(false);
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgb(253, 253, 252);
+  background: transparent;
   backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--c-border);
+  /* border-bottom: 1px solid var(--c-border); */
   animation: header-drop 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
@@ -116,13 +116,13 @@ const menuOpen = ref(false);
   color: rgb(255, 183, 3) !important;
   border-radius: 6px;
   border-color: rgb(255, 183, 3);
-  background: rgb(253, 252, 252) !important;
+  background: rgba(253, 252, 252, 0) ;
   transform: translateY(-1px);
 }
 
 .nav-link--active {
   color: rgb(255, 183, 3) !important;
-  background: rgb(253, 252, 252) !important;
+  background: transparent;
 }
 
 .hamburger {

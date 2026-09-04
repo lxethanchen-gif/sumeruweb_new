@@ -13,7 +13,9 @@ useHead({
   <div class="site-wrapper">
     <AppHeader />
     <main class="site-main">
-      <NuxtPage />
+      <NuxtLayout>
+        <NuxtPage />
+      </NuxtLayout>
     </main>
     <AppFooter />
   </div>
@@ -29,9 +31,9 @@ useHead({
 }
 
 :root {
-  --c-bg: #FFFFFF;
-  --c-surface: #FFFFFF;
-  --c-border: #FFFFFF;
+  --c-bg: #ffffff;
+  --c-surface: #ffffff;
+  --c-border: #ffffff;
   --c-accent: #7c6df0;
   --c-accent-light: #a99bf5;
   --c-text: #e8e8f0;
@@ -40,7 +42,7 @@ useHead({
 }
 
 body {
-  background: #FFFFFF;
+  background: #ffffff;
 }
 </style>
 

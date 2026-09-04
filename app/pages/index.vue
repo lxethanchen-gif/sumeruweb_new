@@ -6,7 +6,7 @@ useHead({
       name: "description",
       content: "作者呂合先生1962年12月14日生於中國遼寧省瓦房店。",
     },
-    { property: "og:title", content: "呂合先生簡介" },
+    { property: "og:title", content: "呂合 誰在幫助台灣 誰在拯救這個世界" },
     {
       property: "og:description",
       content:
@@ -300,7 +300,7 @@ onBeforeUnmount(() => {
 
 <style scoped>
 .page {
-  --bg: #ffffff;
+  /* --bg: #ffffff; */
   --surface: #ffffff;
   --surface-2: #f0f4fb;
   --ink: #b18f15;
@@ -455,8 +455,8 @@ onBeforeUnmount(() => {
   border: 1px solid var(--line);
 }
 .hero__desc {
-  color: var(--ink-dim);
-  font-size: clamp(0.92rem, 2vw, 1.02rem);
+  color: rgb(255, 200, 0);
+  font-size: 18px;
   line-height: 1.75;
   max-width: 52ch;
   margin-bottom: 32px;

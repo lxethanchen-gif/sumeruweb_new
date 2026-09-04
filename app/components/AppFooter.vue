@@ -94,8 +94,9 @@ const socialLinks = [
 
 <style scoped>
 .site-footer {
-  border-top: 1px solid var(--c-border);
-  background: var(--c-surface);
+  /* border-top: 1px solid var(--c-border); */
+  /* background: var(--c-surface); */
+  z-index: 100;
 }
 .footer-inner {
   max-width: 1100px;

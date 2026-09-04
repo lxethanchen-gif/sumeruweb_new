@@ -196,7 +196,7 @@ onBeforeUnmount(() => {
 
 <style scoped>
 .page {
-  --bg: #ffffff;
+  /* --bg: #ffffff; */
   --gold: #8c6e1b;
   --gold-dim: #b0904a;
   --line: #ecdfb8;
