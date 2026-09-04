@@ -23,8 +23,16 @@ const socialLinks = [
     href: "https://www.youtube.com/@KNT-ex1bu/featured",
     label: "與如來接水",
   },
-  { type: "website", href: "https://www.dishendashitw.org/", label: "南無燃燈台上諦深佛陀" },
-  { type: "website", href: "https://sumeruweb.vercel.app/", label: "須彌山佛國網" },
+  {
+    type: "website",
+    href: "https://www.dishendashitw.org/",
+    label: "南無燃燈台上諦深佛陀",
+  },
+  {
+    type: "website",
+    href: "https://sumeruweb.vercel.app/",
+    label: "須彌山佛國網",
+  },
 ];
 </script>
 
@@ -121,10 +129,11 @@ const socialLinks = [
   gap: 16px;
 }
 .footer-link {
-  font-size: 0.82rem;
+  font-size: 16px;
   color: rgb(255, 183, 3);
   text-decoration: none;
   transition: color 0.2s;
+  font-weight: 600;
 }
 .footer-link:hover {
   color: rgb(244, 207, 115);

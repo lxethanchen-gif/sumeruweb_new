@@ -481,10 +481,14 @@ onBeforeUnmount(() => {
   background: rgb(255, 183, 3);
   color: #ffffff;
   letter-spacing: 0.2em;
+  font-size: 18px;
+  font-weight: 600;
 }
 .btn--primary:hover {
-  background: #ffffff;
+  background: transparent;
   border-color: rgb(255, 183, 3);
+  border: 2px solid rgb(255, 183, 3);
+  border-radius: 6px;
   color: rgb(255, 183, 3);
 }
 .btn--ghost {
