@@ -1,6 +1,6 @@
 <script setup lang="ts">
 useHead({
-  title: "關於我們 | MySite",
+  title: "作者簡介",
   meta: [
     {
       name: "description",

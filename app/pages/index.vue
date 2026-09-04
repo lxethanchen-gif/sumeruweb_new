@@ -6,7 +6,7 @@ useHead({
       name: "description",
       content: "作者呂合先生1962年12月14日生於中國遼寧省瓦房店。",
     },
-    { property: "og:title", content: "首頁 | MySite" },
+    { property: "og:title", content: "呂合先生簡介" },
     {
       property: "og:description",
       content:

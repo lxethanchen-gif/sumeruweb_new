@@ -5,6 +5,27 @@ interface Store {
   url: string;
 }
 
+useHead({
+  title: "販售連結",
+  meta: [
+    {
+      name: "description",
+      content: "呂合先生（諦深大師）2019至2023年臉書評論文章彙整。",
+    },
+    { property: "og:title", content: "販售連結" },
+    {
+      property: "og:description",
+      content: "呂合先生（諦深大師）2019至2023年臉書評論文章彙整。",
+    },
+  ],
+  link: [
+    {
+      rel: "stylesheet",
+      href: "https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700&display=swap",
+    },
+  ],
+});
+
 const bookTitle = "誰在幫助臺灣\n誰在拯救這個世界？";
 const bookAuthor = "呂合 著";
 
