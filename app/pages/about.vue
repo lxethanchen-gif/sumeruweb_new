@@ -99,13 +99,13 @@ onBeforeUnmount(() => {
       <h1 class="reveal" style="--delay: 0.08s">
         呂合（諦深）<br /><span class="accent">生平與弘法紀事</span>
       </h1> -->
-      <!-- <p class="lead reveal" style="--delay: 0.16s">
+    <!-- <p class="lead reveal" style="--delay: 0.16s">
         呂合（1962年12月14日－），法號諦深，生於中華人民共和國，是一名漢傳佛教僧人、作家與異議人士。他因公開批評中國共產黨的宗教政策而引發關注。據對話基金會（The
         Dui Hua
         Foundation）及歐洲捍衛人權與宗教自由協會（ADHRRF）等人權組織報告，自2025年起，其佛教團體的成員在中國大陸多地被拘捕。中國當局指控其部分追隨者涉嫌「利用迷信破壞法律實施罪」。
       </p> -->
 
-      <!-- <div class="divider reveal" style="--delay: 0.2s"></div>
+    <!-- <div class="divider reveal" style="--delay: 0.2s"></div>
 
       <article class="block reveal" style="--delay: 0.24s">
         <h2>生平與活動</h2>
@@ -122,7 +122,7 @@ onBeforeUnmount(() => {
         </p>
       </article> -->
 
-      <!-- <article class="block reveal" style="--delay: 0.3s">
+    <!-- <article class="block reveal" style="--delay: 0.3s">
         <h2>佛學思想與弘法</h2>
         <p>
           根據諦深的著述和講說，他重視戒律與實修，主張嚴淨毗尼，並闡述持戒的意義與重要性。他為在家弟子制定了「二十二戒」，作為修行準則。
@@ -135,7 +135,7 @@ onBeforeUnmount(() => {
       <article class="block reveal" style="--delay: 0.36s">
         <!-- <h2>事件</h2> -->
 
-        <!-- <h3>2024年南華寺事件</h3>
+    <!-- <h3>2024年南華寺事件</h3>
         <p>
           據海外中文媒體報道，2024年12月，三名自稱是諦深弟子的比丘尼在廣東省南華寺附近與地方執法人員發生爭執。事後，這三人在網絡發布視頻，內容包含對中國共產黨及政府領導人的批評，引發關注。
         </p>
@@ -151,10 +151,10 @@ onBeforeUnmount(() => {
         <p>
           對話基金會確認，部分被拘者已被刑事拘留，其涉嫌罪名為《中華人民共和國刑法》第三百條的「利用迷信破壞法律實施罪」。
         </p> -->
-      <!-- </article> -->
+    <!-- </article> -->
 
-      <!-- <div class="divider reveal" style="--delay: 0.4s"></div> -->
-
+    <!-- <div class="divider reveal" style="--delay: 0.4s"></div> -->
+    <section class="content">
       <article class="block story reveal" style="--delay: 0.44s">
         <!-- <h2>諦深大師因緣紀事</h2> -->
         <p>
