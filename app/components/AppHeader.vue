@@ -79,7 +79,7 @@ const menuOpen = ref(false);
 .logo {
   font-size: 15px;
   font-weight: 700;
-  color: rgb(252, 210, 0);
+  color: rgb(252, 184, 0);
   line-height: 1.2;
   text-decoration: none;
   letter-spacing: 0.02em;
